@@ -47,8 +47,12 @@ img {
     font-display: swap; 
 }
 
+:root {
+    --gap: 30px;
+}
+
 body {
-    min-width: 1200px;
+    min-width: 320px;
     font-family: 'OpenSans', sans-serif;
     font-weight: 400;
 }
@@ -75,6 +79,7 @@ body {
     max-width: 1200px;
     padding: 0 15px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .section-title {
@@ -273,11 +278,17 @@ body {
     text-align: center;
 }
 
+.services-items {
+    --offsets: 3;
+    gap: var(--gap);
+    flex-wrap: wrap;
+}
+
 .services-item {
     flex-direction: column;
     align-items: center;
     padding: 60px 30px;
-    width: 270px;
+    width: calc((100% - (var(--gap) * var(--offsets))) / (var(--offsets) + 1));
     border: 1px solid #E4E4E4;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
@@ -286,10 +297,6 @@ body {
 .services-item:hover {
     border-color: #3172B9;
     background-color: #3172B9;
-}
-
-.services-item:not(:nth-child(4n)) {
-    margin-right: 30px;
 }
 
 .services-item-icon {
@@ -332,15 +339,13 @@ body {
 /* articles */
 .articles-list {
     flex-wrap: wrap;
+    --offsets: 1;
+    gap: var(--gap);
 }
 
 .articles-item {
-    width: 570px;
+    width: calc((100% - (var(--offsets) * var(--gap))) / (var(--offsets) + 1));
     margin-bottom: 30px;
-}
-
-.articles-item:not(:nth-child(2n)) {
-    margin-right: 30px;
 }
 
 .blog-preview {
@@ -441,16 +446,18 @@ body {
 }
 
 /* clients */
+.clients-list {
+    --offsets: 2;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
 .clients-item {
     flex-direction: column;
-    width: 370px;
+    width: calc((100% - (var(--gap) * var(--offsets))) / (var(--offsets) + 1));
     padding: 50px 36px;
     padding-bottom: 30px;
     border: 1px solid #E4E4E4;
-}
-
-.clients-item:not(:nth-child(3n)) {
-    margin-right: 30px;
 }
 
 .clients-item-descr {
@@ -501,9 +508,15 @@ body {
     font-style: normal;
 }
 
+.contacts-list {
+    --offsets: 2;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
 .contacts-item {
     flex-direction: column;
-    width: 370px;
+    width: calc((100% - (var(--gap) * var(--offsets))) / (var(--offsets) + 1));
     padding-top: 48px;
     background-position: left top;
     background-repeat: no-repeat;
@@ -519,10 +532,6 @@ body {
 
 .contacts-item-mail {
     background-image: url(../img/mail.svg);
-}
-
-.contacts-item:not(:nth-child(3n)) {
-    margin-right: 30px;
 }
 
 .contacts-item-caption {
